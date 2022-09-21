@@ -1,7 +1,9 @@
-<div [ngClass] = "{'message': true, 'self': isSender, 'other': !isSender}" class="message">
-  <sub>{{message.user}}</sub>
-  <span>{{message.content}}</span>
-  <sub>{{message.time}}</sub>
+<div [ngClass] = "{'messagebox': true, 'self': isSender, 'other': !isSender}" class="message">
+  <sub *ngIf="!isSender">{{message.user}}</sub>
+  <div class="message">
+    <p>{{message.content}}</p>
+    <sub>{{message.time}}</sub>
+  </div>
 </div>
 
 <!-- <div class="other-message">

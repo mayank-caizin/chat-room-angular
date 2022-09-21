@@ -1,17 +1,36 @@
+.messagebox {
+  padding: 10px;
+}
+
+.messagebox sub {
+  display: block;
+  font-size: 0.7em;
+}
+
 .message {
   display: inline-block;
+}
+
+.message p {
+  border-radius: 10px;
+  font-size: 1.3em;
   padding: 10px;
-  background-color: #a0dcff;
 }
 
-.message sub {
-  display: block;
-}
-
-.other-message {
+.other {
   text-align: left;
 }
 
-.self-message {
+.self {
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.self .message p {
+  background-color: #77c7c4;
+}
+
+.other .message p {
+  background-color: #a9b5b5;
 }

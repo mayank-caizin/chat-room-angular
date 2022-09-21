@@ -10,6 +10,6 @@
 
   <div class="message-input-container">
     <input type="text" placeholder="Type message here..." [(ngModel)] = 'messageText'>
-    <button (click) = 'sendMessage()'>Send</button>
+    <button (click) = "sendMessage()" [disabled]="isDisabled">Send</button>
   </div>
 </div>

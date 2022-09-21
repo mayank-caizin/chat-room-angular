@@ -1,9 +1,11 @@
 .user-chat-box {
   width: 300px;
   height: 350px;
-  border: 1px solid black;
-  padding: 1rem;
+  /* border: 1px solid black; */
+  /* padding: 1rem; */
   margin: 1rem;
+  background-color: white;
+  border-radius: 15px;
 
   display: flex;
   flex-direction: column;
@@ -11,13 +13,22 @@
 
 .chat-header {
   display: flex;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  padding: 5px;
   justify-content: space-between;
 }
 
 .chat-header h2 {
   padding: 5px;
-  margin-bottom: 1rem;
+  margin-left: 5px;
+}
+
+.chat-header button {
+  padding: 5px 10px;
+  border: none;
+  background-color: inherit;
+  margin-right: 5px;
+  font-weight: bold;
 }
 
 #chat-messages-list {
@@ -25,6 +36,8 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
+  overflow: auto;
+  background-color: #e5f3f6;
   /* border: 1px solid white; */
 }
 
@@ -39,9 +52,13 @@
 .message-input-container input {
   width: 70%;
   height: 2rem;
-  padding: 5px;
+  padding: 15px;
+  border: none;
+  border-bottom-left-radius: 15px;
 }
 
 .message-input-container button {
   width: 30%;
+  border: none;
+  border-bottom-right-radius: 15px;
 }
