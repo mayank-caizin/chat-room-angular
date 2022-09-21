@@ -8,6 +8,7 @@ import { Message } from './message';
 })
 export class MessageComponent implements OnInit {
   message!: Message;
+  isSender: boolean = false;
 
   constructor() { }
 

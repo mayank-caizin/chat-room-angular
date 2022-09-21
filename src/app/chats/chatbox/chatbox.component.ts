@@ -35,6 +35,7 @@ export class ChatboxComponent implements OnInit {
     console.log(message);
     const msg = this.messageContainer.createComponent(MessageComponent);
     msg.instance.message = message;
+    msg.instance.isSender = (message.user === this.name);
   }
 
   leaveChat() {

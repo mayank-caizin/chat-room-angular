@@ -1,4 +1,10 @@
-<div class="other-message">
+<div [ngClass] = "{'message': true, 'self': isSender, 'other': !isSender}" class="message">
+  <sub>{{message.user}}</sub>
+  <span>{{message.content}}</span>
+  <sub>{{message.time}}</sub>
+</div>
+
+<!-- <div class="other-message">
   <div class="message">
       <sub>John</sub>
       <span> Other Message </span>
@@ -8,4 +14,4 @@
   <div class="message">
       <span> Self Message </span>
   </div>
-</div>
+</div> -->
