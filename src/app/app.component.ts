@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { ChatboxComponent } from './chats/chatbox/chatbox.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { ChatboxComponent } from './chats/chatbox/chatbox.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnChanges{
+export class AppComponent{
   @ViewChild('chatContainer', { read: ViewContainerRef })
   chatContainer!: ViewContainerRef;
 
@@ -28,9 +28,5 @@ export class AppComponent implements OnChanges{
 
   removeChat() {
     //
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.chatName);
   }
 }
