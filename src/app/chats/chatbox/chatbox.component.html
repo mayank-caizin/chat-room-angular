@@ -1,19 +1,12 @@
 <div class="user-chat-box">
-  <h2>User X</h2>
+  <div class="chat-header">
+    <h2>{{name}}</h2>
+    <button>X</button>
+  </div>
 
   <div id="chat-messages-list">
-    <div class="other-message">
-        <div class="message">
-            <sub>John</sub>
-            <span> Other Message </span>
-        </div>
-    </div>
-    <div class="self-message">
-        <div class="message">
-            <span> Self Message </span>
-        </div>
-    </div>
-</div>
+    <cr-message></cr-message>
+  </div>
 
   <div class="message-input-container">
     <input type="text" placeholder="Type message here...">

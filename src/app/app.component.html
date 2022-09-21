@@ -1,12 +1,12 @@
 <div class="container">
   <h1>{{title}}</h1>
   <div class="join-chat">
-    <input type="text" name="name" id="name">
-    <button>Join</button>
+    <input type="text" [(ngModel)] = 'chatName' >
+    <button (click) = 'createChat()'> Join </button>
   </div>
 
   <div class="chat-container">
     <cr-chatbox></cr-chatbox>
-    <cr-chatbox></cr-chatbox>
+    <ng-container #chatContainer></ng-container>
   </div>
 </div>
