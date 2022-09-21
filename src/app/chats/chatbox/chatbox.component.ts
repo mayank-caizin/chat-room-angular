@@ -8,15 +8,22 @@ import { Message } from '../messages/message';
   styleUrls: ['./chatbox.component.css']
 })
 export class ChatboxComponent implements OnInit {
-  // @Input() name: string = 'User';
   name: string = 'User';
-  messages: Message[] = [];
+  messageText: string = '';
+  // messages: Message[] = [];
 
-  // constructor(name: string) {
-  //   this.name = name;
-  // }
+  constructor(private messageService: MessageService) {}
 
   ngOnInit(): void {
+    this.messageService.message$.subscribe(message => console.log(message));
   }
 
+  sendMessage() {
+    let message: Message = {
+      user: this.name,
+      content: this.messageText,
+      time: new Date().toLocaleTimeString()
+    }
+    this.messageService.broadcastMessage(message);
+  }
 }

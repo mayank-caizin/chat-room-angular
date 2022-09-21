@@ -10,4 +10,8 @@ export class MessageService {
   message$ = this.messageSubject.asObservable();
 
   constructor() { }
+
+  broadcastMessage(message: Message) {
+    this.messageSubject.next(message);
+  }
 }

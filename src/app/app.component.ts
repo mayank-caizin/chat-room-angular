@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { ChatboxComponent } from './chats/chatbox/chatbox.component';
-import { MessageService } from './shared/message.service';
 
 @Component({
   selector: 'cr-root',
@@ -10,8 +9,6 @@ import { MessageService } from './shared/message.service';
 export class AppComponent implements OnChanges{
   @ViewChild('chatContainer', { read: ViewContainerRef })
   chatContainer!: ViewContainerRef;
-
-  constructor(private messageService: MessageService) {}
 
   title = 'Chat Room';
 
