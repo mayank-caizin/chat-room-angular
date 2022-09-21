@@ -22,13 +22,10 @@ export class AppComponent{
 
   createChat() {
     if(!this.chatName) return;
-    
+
     const chat = this.chatContainer.createComponent(ChatboxComponent);
     chat.instance.name = this.chatName;
+    chat.instance.myComponentRef = chat;
     this.chatName = '';
-  }
-
-  removeChat() {
-    //
   }
 }

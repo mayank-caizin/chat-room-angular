@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, OnInit, ComponentRef } from '@angular/core';
 import { MessageService } from '../../shared/message.service';
 import { Message } from '../messages/message';
 import { MessageComponent } from '../messages/message.component';
@@ -16,6 +16,7 @@ export class ChatboxComponent implements OnInit{
   messageText: string = '';
   sub!: Subscription;
   isDisabled: boolean = false;
+  myComponentRef!: ComponentRef<ChatboxComponent>;
 
   constructor(private messageService: MessageService) {}
 
@@ -42,7 +43,8 @@ export class ChatboxComponent implements OnInit{
   }
 
   leaveChat() {
+    this.myComponentRef.destroy();
     this.sub.unsubscribe();
-    this.isDisabled = true;
+    // this.isDisabled = true;
   }
 }
