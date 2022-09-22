@@ -4,12 +4,15 @@
     <button (click) = 'leaveChat()'>X</button>
   </div>
 
-  <div id="chat-messages-list">
-    <ng-container #messageContainer></ng-container>
+  <div class="chat-messages-list">
+    <div *ngFor="let message of myMessages">
+      <cr-message [message]="message" [receiver]="name"></cr-message>
+    </div>
+    <!-- <ng-container #messageContainer></ng-container> -->
   </div>
 
   <div class="message-input-container">
-    <input type="text" placeholder="Type message here..." [(ngModel)] = 'messageText'>
+    <input type="text" placeholder="Type message here..." [(ngModel)] = 'newMessage'>
     <button (click) = "sendMessage()" [disabled]="isDisabled">Send</button>
   </div>
 </div>

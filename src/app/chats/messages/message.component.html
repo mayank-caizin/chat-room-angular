@@ -1,8 +1,8 @@
 <div [ngClass] = "{'messagebox': true, 'self': isSender, 'other': !isSender}" class="message">
-  <sub *ngIf="!isSender">{{message.user}}</sub>
+  <sub *ngIf="!isSender">{{message.sender}}</sub>
   <div class="message">
     <p>{{message.content}}</p>
-    <sub>{{message.time}}</sub>
+    <sub>{{message.time | convertTimeToString}}</sub>
   </div>
 </div>
 

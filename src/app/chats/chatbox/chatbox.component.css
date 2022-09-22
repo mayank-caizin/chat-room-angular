@@ -31,7 +31,7 @@
   font-weight: bold;
 }
 
-#chat-messages-list {
+.chat-messages-list {
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@
   /* border: 1px solid white; */
 }
 
-#chat-messages-list > div {
+.chat-messages-list > div {
   padding: 5px;
 }
 

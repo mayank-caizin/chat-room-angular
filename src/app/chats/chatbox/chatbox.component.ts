@@ -1,7 +1,7 @@
 import { Component, ViewChild, ViewContainerRef, OnInit, ComponentRef } from '@angular/core';
 import { MessageService } from '../../shared/message.service';
 import { Message } from '../messages/message';
-import { MessageComponent } from '../messages/message.component';
+// import { MessageComponent } from '../messages/message.component';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -13,10 +13,11 @@ export class ChatboxComponent implements OnInit{
   @ViewChild('messageContainer', {read: ViewContainerRef}) messageContainer!: ViewContainerRef;
 
   name: string = '';
-  messageText: string = '';
+  newMessage: string = '';
   sub!: Subscription;
   isDisabled: boolean = false;
   myComponentRef!: ComponentRef<ChatboxComponent>;
+  myMessages: Message[] = [];
 
   constructor(private messageService: MessageService) {}
 
@@ -25,26 +26,27 @@ export class ChatboxComponent implements OnInit{
   }
 
   sendMessage() {
-    if(!this.messageText) return;
+    if(!this.newMessage) return;
 
     let message: Message = {
-      user: this.name,
-      content: this.messageText,
-      time: new Date().toLocaleTimeString()
+      sender: this.name,
+      content: this.newMessage,
+      time: new Date()
     }
-    this.messageText = '';
+    this.newMessage = '';
     this.messageService.broadcastMessage(message);
   }
 
   receiveMessage(message: Message) {
-    const msg = this.messageContainer.createComponent(MessageComponent);
-    msg.instance.message = message;
-    msg.instance.isSender = (message.user === this.name);
+    this.myMessages.push(message);
+    // const msg = this.messageContainer.createComponent(MessageComponent);
+    // msg.instance.message = message;
+    // msg.instance.isSender = (message.sender === this.name);
   }
 
   leaveChat() {
-    this.myComponentRef.destroy();
     this.sub.unsubscribe();
+    this.myComponentRef.destroy();
     // this.isDisabled = true;
   }
 }

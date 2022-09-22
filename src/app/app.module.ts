@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ChatboxComponent } from './chats/chatbox/chatbox.component';
 import { MessageComponent } from './chats/messages/message.component';
+import { ConvertTimeToStringPipe } from './shared/convert-time-to-string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatboxComponent,
-    MessageComponent
+    MessageComponent,
+    ConvertTimeToStringPipe
   ],
   imports: [
     BrowserModule,
