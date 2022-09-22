@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { MessageService } from '../../shared/message.service';
 import { Message } from '../messages/message';
-// import { MessageComponent } from '../messages/message.component';
 import {Subscription} from 'rxjs';
 import { ChatService } from 'src/app/shared/chat.service';
 import { User } from './user';
@@ -13,15 +11,12 @@ import { User } from './user';
   styleUrls: ['./chatbox.component.css']
 })
 export class ChatboxComponent implements OnInit{
-  // @ViewChild('messageContainer', {read: ViewContainerRef}) messageContainer!: ViewContainerRef;
-
   @Input() user!: User;
   @Output() leave: EventEmitter<number> = new EventEmitter<number>();
 
   newMessage: string = '';
   sub!: Subscription;
   active: boolean = true;
-  // myComponentRef!: ComponentRef<ChatboxComponent>;
   myMessages: Message[] = [];
 
   constructor(private chatService: ChatService ,private messageService: MessageService) {}
@@ -45,10 +40,6 @@ export class ChatboxComponent implements OnInit{
 
   receiveMessage(message: Message) {
     this.myMessages.push(message);
-
-    // const msg = this.messageContainer.createComponent(MessageComponent);
-    // msg.instance.message = message;
-    // msg.instance.isSender = (message.sender === this.name);
   }
 
   leaveChat() {
@@ -56,7 +47,5 @@ export class ChatboxComponent implements OnInit{
     this.sub.unsubscribe();
     this.leave.emit(this.user.id);
     // this.active = false;
-
-    // this.myComponentRef.destroy();
   }
 }

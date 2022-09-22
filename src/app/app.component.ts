@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { User } from './chats/chatbox/user';
-// import { ViewChild, ViewContainerRef } from '@angular/core';
-// import { ChatboxComponent } from './chats/chatbox/chatbox.component';
 
 @Component({
   selector: 'cr-root',
@@ -9,8 +7,6 @@ import { User } from './chats/chatbox/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  // @ViewChild('chatContainer', { read: ViewContainerRef }) chatContainer!: ViewContainerRef;
-
   title = 'Chat Room';
   users: User[] = [];
 
@@ -31,10 +27,6 @@ export class AppComponent{
     }
 
     this.users.push(user);
-
-    // const chat = this.chatContainer.createComponent(ChatboxComponent);
-    // chat.instance.name = this.newUser;
-    // chat.instance.myComponentRef = chat;
 
     this.newUser = '';
   }

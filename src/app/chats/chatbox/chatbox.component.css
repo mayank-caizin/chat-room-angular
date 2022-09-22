@@ -1,8 +1,6 @@
 .user-chat-box {
   width: 300px;
   height: 350px;
-  /* border: 1px solid black; */
-  /* padding: 1rem; */
   margin: 1rem;
   background-color: white;
   border-radius: 15px;
@@ -13,7 +11,6 @@
 
 .chat-header {
   display: flex;
-  /* border: 1px solid black; */
   padding: 5px;
   justify-content: space-between;
 }
@@ -38,7 +35,6 @@
   justify-content: end;
   overflow: auto;
   background-color: #e5f3f6;
-  /* border: 1px solid white; */
 }
 
 .chat-messages-list > div {
