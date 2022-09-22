@@ -1,4 +1,5 @@
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component } from '@angular/core';
+// import { ViewChild, ViewContainerRef } from '@angular/core';
 import { ChatboxComponent } from './chats/chatbox/chatbox.component';
 
 @Component({
@@ -7,25 +8,28 @@ import { ChatboxComponent } from './chats/chatbox/chatbox.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  @ViewChild('chatContainer', { read: ViewContainerRef })
-  chatContainer!: ViewContainerRef;
+  // @ViewChild('chatContainer', { read: ViewContainerRef }) chatContainer!: ViewContainerRef;
 
   title = 'Chat Room';
+  users: string[] = [];
 
-  private _chatName = '';
-  get chatName(): string {
-    return this._chatName;
+  private _newUser = '';
+  get newUser(): string {
+    return this._newUser;
   }
-  set chatName(value: string) {
-    this._chatName = value;
+  set newUser(value: string) {
+    this._newUser = value;
   }
 
   createChat() {
-    if(!this.chatName) return;
+    if(!this.newUser) return;
 
-    const chat = this.chatContainer.createComponent(ChatboxComponent);
-    chat.instance.name = this.chatName;
-    chat.instance.myComponentRef = chat;
-    this.chatName = '';
+    this.users.push(this.newUser);
+
+    // const chat = this.chatContainer.createComponent(ChatboxComponent);
+    // chat.instance.name = this.newUser;
+    // chat.instance.myComponentRef = chat;
+
+    this.newUser = '';
   }
 }

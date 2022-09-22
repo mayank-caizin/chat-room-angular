@@ -1,4 +1,5 @@
-import { Component, ViewChild, ViewContainerRef, OnInit, ComponentRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+// import { ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { MessageService } from '../../shared/message.service';
 import { Message } from '../messages/message';
 // import { MessageComponent } from '../messages/message.component';
@@ -10,13 +11,13 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./chatbox.component.css']
 })
 export class ChatboxComponent implements OnInit{
-  @ViewChild('messageContainer', {read: ViewContainerRef}) messageContainer!: ViewContainerRef;
+  // @ViewChild('messageContainer', {read: ViewContainerRef}) messageContainer!: ViewContainerRef;
 
-  name: string = '';
+  @Input() name: string = '';
   newMessage: string = '';
   sub!: Subscription;
-  isDisabled: boolean = false;
-  myComponentRef!: ComponentRef<ChatboxComponent>;
+  active: boolean = true;
+  // myComponentRef!: ComponentRef<ChatboxComponent>;
   myMessages: Message[] = [];
 
   constructor(private messageService: MessageService) {}
@@ -39,6 +40,7 @@ export class ChatboxComponent implements OnInit{
 
   receiveMessage(message: Message) {
     this.myMessages.push(message);
+
     // const msg = this.messageContainer.createComponent(MessageComponent);
     // msg.instance.message = message;
     // msg.instance.isSender = (message.sender === this.name);
@@ -46,7 +48,7 @@ export class ChatboxComponent implements OnInit{
 
   leaveChat() {
     this.sub.unsubscribe();
-    this.myComponentRef.destroy();
-    // this.isDisabled = true;
+    this.active = false;
+    // this.myComponentRef.destroy();
   }
 }

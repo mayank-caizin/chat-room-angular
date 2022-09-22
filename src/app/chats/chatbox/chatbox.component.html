@@ -1,4 +1,4 @@
-<div class="user-chat-box">
+<div *ngIf="active" class="user-chat-box">
   <div class="chat-header">
     <h2>{{name}}</h2>
     <button (click) = 'leaveChat()'>X</button>
@@ -13,6 +13,6 @@
 
   <div class="message-input-container">
     <input type="text" placeholder="Type message here..." [(ngModel)] = 'newMessage'>
-    <button (click) = "sendMessage()" [disabled]="isDisabled">Send</button>
+    <button (click) = "sendMessage()" [disabled]="!active">Send</button>
   </div>
 </div>
