@@ -1,12 +1,12 @@
 <div *ngIf="active" class="user-chat-box">
   <div class="chat-header">
-    <h2>{{name}}</h2>
+    <h2>{{user.name}}</h2>
     <button (click) = 'leaveChat()'>X</button>
   </div>
 
   <div class="chat-messages-list">
     <div *ngFor="let message of myMessages">
-      <cr-message [message]="message" [receiver]="name"></cr-message>
+      <cr-message [message]="message" [receiver]="user.name"></cr-message>
     </div>
     <!-- <ng-container #messageContainer></ng-container> -->
   </div>

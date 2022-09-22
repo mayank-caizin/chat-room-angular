@@ -6,8 +6,8 @@
   </div>
 
   <div class="chat-container">
-    <div *ngFor="let user of users">
-      <cr-chatbox [name]="user"></cr-chatbox>
+    <div *ngFor="let user of users" trackBy="trackUser">
+      <cr-chatbox [user]="user" (leave)="removeChat($event)"></cr-chatbox>
     </div>
     <!-- <ng-container #chatContainer></ng-container> -->
   </div>
