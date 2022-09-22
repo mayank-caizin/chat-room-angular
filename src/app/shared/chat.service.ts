@@ -7,7 +7,7 @@ import { Message } from '../chats/messages/message';
 export class ChatService {
 
   constructor() {
-    localStorage.clear();
+    // localStorage.clear();
   }
 
   fetchChat(username: string): Message[] {
