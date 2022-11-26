@@ -6,7 +6,7 @@
 
   <div class="chat-messages-list">
     <div *ngFor="let message of myMessages">
-      <cr-message [message]="message" [receiver]="user.name"></cr-message>
+      <cr-message [message]="message" [receiver]="user.name" (delete)="deleteMessage($event)"></cr-message>
     </div>
   </div>
 

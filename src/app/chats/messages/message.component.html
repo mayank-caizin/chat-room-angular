@@ -1,7 +1,7 @@
 <div [ngClass] = "{'messagebox': true, 'self': isSender, 'other': !isSender}" class="message">
   <sub *ngIf="!isSender">{{message.sender}}</sub>
   <div class="message">
-    <p>{{message.content}}</p>
+    <p> <span>{{message.content}}</span>  <sub (click)="deleteMe()">x</sub> </p>
     <sub>{{message.time | convertTimeToString}}</sub>
   </div>
 </div>

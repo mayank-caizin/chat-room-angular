@@ -30,6 +30,7 @@ export class ChatboxComponent implements OnInit{
     if(!this.newMessage) return;
 
     let message: Message = {
+      id: Math.random(),
       sender: this.user.name,
       content: this.newMessage,
       time: new Date()
@@ -40,6 +41,10 @@ export class ChatboxComponent implements OnInit{
 
   receiveMessage(message: Message) {
     this.myMessages.push(message);
+  }
+
+  deleteMessage(id: number) {
+    this.myMessages = this.myMessages.filter(msg => msg.id !== id);
   }
 
   leaveChat() {

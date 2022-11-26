@@ -17,6 +17,10 @@
   padding: 10px;
 }
 
+.message p sub {
+  display: inline;
+}
+
 .other {
   text-align: left;
 }
